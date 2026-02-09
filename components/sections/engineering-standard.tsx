@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -48,13 +48,14 @@ const features = [
 export default function EngineeringStandard() {
     const [currentFeature, setCurrentFeature] = useState(0);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentFeature((prev) => (prev + 1) % features.length);
-        }, 4000);
-
-        return () => clearInterval(timer);
-    }, []);
+    // Auto-play disabled to prevent layout shifts
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         setCurrentFeature((prev) => (prev + 1) % features.length);
+    //     }, 4000);
+    //
+    //     return () => clearInterval(timer);
+    // }, []);
 
     return (
         <section className="py-24 px-8 md:px-12 relative z-20 overflow-hidden">
