@@ -1,0 +1,68 @@
+﻿
+> xyz_dimensions@0.1.0 lint
+> eslint
+
+
+C:\XYZ_Dimensions\xyz_dimensions\components\ChromaGrid.jsx
+  158:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\XYZ_Dimensions\xyz_dimensions\components\mvpblocks\card-flip.tsx
+  87:34  error  Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\XYZ_Dimensions\xyz_dimensions\components\mvpblocks\card-flip.tsx:87:34
+   85 |             <div className="relative flex h-[100px] w-[200px] flex-col items-center justify-center gap-2">
+   86 |               {/* Code blocks animation */}
+>  87 |               {[...Array(6)].map((_, i) => (
+      |                                  ^^^^^^^^^^^
+>  88 |                 <div
+      | ^^^^^^^^^^^^^^^^^^^^
+>  89 |                   key={i}
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^
+>  97 |                 />
+      | ^^^^^^^^^^^^^^^^^^^^
+>  98 |               ))}
+      | ^^^^^^^^^^^^^^^^ Cannot access ref value during render
+   99 |
+  100 |               {/* Central rocket icon */}
+  101 |               <div className="absolute inset-0 flex items-center justify-center">  react-hooks/refs
+
+C:\XYZ_Dimensions\xyz_dimensions\components\mvpblocks\feature-2.tsx
+  141:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\XYZ_Dimensions\xyz_dimensions\components\ui\page-background.tsx
+   15:11  warning  'Particle' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  123:22  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\XYZ_Dimensions\xyz_dimensions\components\ui\page-background.tsx:123:22
+  121 |                 {/* Particle effects - enhanced floating dots */}
+  122 |                 <div className="absolute inset-0 overflow-hidden">
+> 123 |                     {particlePositions.map((particle, i) => (
+      |                      ^^^^^^^^^^^^^^^^^ Cannot access ref value during render
+  124 |                         <motion.div
+  125 |                             key={i}
+  126 |                             className="absolute rounded-full bg-white"      react-hooks/refs
+  123:22  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\XYZ_Dimensions\xyz_dimensions\components\ui\page-background.tsx:123:22
+  121 |                 {/* Particle effects - enhanced floating dots */}
+  122 |                 <div className="absolute inset-0 overflow-hidden">
+> 123 |                     {particlePositions.map((particle, i) => (
+      |                      ^^^^^^^^^^^^^^^^^^^^^ Cannot access ref value during render
+  124 |                         <motion.div
+  125 |                             key={i}
+  126 |                             className="absolute rounded-full bg-white"  react-hooks/refs
+
+C:\XYZ_Dimensions\xyz_dimensions\components\ui\particles.tsx
+  129:6  warning  React Hook useEffect has missing dependencies: 'animate' and 'initCanvas'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  133:6  warning  React Hook useEffect has a missing dependency: 'onMouseMove'. Either include it or remove the dependency array                 react-hooks/exhaustive-deps
+  137:6  warning  React Hook useEffect has a missing dependency: 'initCanvas'. Either include it or remove the dependency array                  react-hooks/exhaustive-deps
+
+Γ£û 9 problems (3 errors, 6 warnings)
+

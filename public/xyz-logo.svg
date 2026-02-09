@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="xyz-logo">
+        <path d="M5 60 C 5 60, 60 5, 200 10 C 280 13, 350 35, 390 45 C 395 46, 380 40, 360 35 C 280 15, 180 0, 70 0 C 30 0, 10 30, 5 60 Z" fill="#DC1E28" />
+        <path d="M15 65 C 15 65, 65 20, 180 25 C 240 28, 300 45, 340 52 C 345 53, 330 45, 300 38 C 220 20, 120 10, 60 15 C 30 18, 20 45, 15 65 Z" fill="#DC1E28" />
+        <path d="M25 70 C 25 70, 65 35, 150 38 C 200 40, 240 50, 270 58 C 275 60, 260 50, 220 40 C 150 25, 80 25, 25 70 Z" fill="#DC1E28" />
+        <text x="35" y="95" fontFamily="Arial, Helvetica, sans-serif" fontWeight="900" fontSize="60" fill="white" letter-spacing="-1">XYZ</text>
+        <text x="38" y="112" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" fontSize="11" fill="white" letter-spacing="4.2">DIMENSIONS</text>
+    </g>
+</svg>
