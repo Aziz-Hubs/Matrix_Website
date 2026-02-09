@@ -100,6 +100,9 @@ export default function FeaturedProjects() {
         const el = rootRef.current;
         if (!el) return;
 
+        // Disable on touch devices
+        if (window.matchMedia("(hover: none)").matches) return;
+
         const r = el.getBoundingClientRect();
         const x = e.clientX - r.left;
         const y = e.clientY - r.top;
@@ -130,6 +133,9 @@ export default function FeaturedProjects() {
     const handleEnter = () => { };
 
     const handleCardMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        // Disable on touch devices
+        if (typeof window !== 'undefined' && window.matchMedia("(hover: none)").matches) return;
+
         const card = e.currentTarget;
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;

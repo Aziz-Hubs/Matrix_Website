@@ -64,7 +64,7 @@ export function PageBackground({ children, className = '' }: PageBackgroundProps
 
             {/* Noise texture */}
             <svg
-                className="fixed inset-0 z-[2] h-full w-full opacity-25 pointer-events-none"
+                className="hidden md:block fixed inset-0 z-[2] h-full w-full opacity-25 pointer-events-none"
             >
                 <filter id="noise-filter-page">
                     <feTurbulence
@@ -99,30 +99,30 @@ export function PageBackground({ children, className = '' }: PageBackgroundProps
                     <div className="h-full w-full bg-[linear-gradient(to_right,rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
                 </div>
 
-                {/* Enhanced glow spots */}
+                {/* Enhanced glow spots - hidden on mobile for performance */}
                 <motion.div
                     animate={glowAnimation}
-                    className="absolute top-10 -left-10 h-80 w-80 rounded-full bg-red-600/25 blur-[120px]"
+                    className="hidden md:block absolute top-10 -left-10 h-80 w-80 rounded-full bg-red-600/25 blur-[120px]"
                 ></motion.div>
                 <motion.div
                     animate={{ ...glowAnimation, transition: { ...glowAnimation.transition, delay: 1 } }}
-                    className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-purple-600/20 blur-[120px]"
+                    className="hidden md:block absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-purple-600/20 blur-[120px]"
                 ></motion.div>
                 <motion.div
                     animate={glowAnimation}
-                    className="absolute top-1/3 left-1/4 h-60 w-60 rounded-full bg-red-500/15 blur-[100px]"
+                    className="hidden md:block absolute top-1/3 left-1/4 h-60 w-60 rounded-full bg-red-500/15 blur-[100px]"
                 ></motion.div>
                 <motion.div
                     animate={{ ...glowAnimation, transition: { ...glowAnimation.transition, delay: 2 } }}
-                    className="absolute right-1/4 bottom-1/3 h-60 w-60 rounded-full bg-purple-500/15 blur-[100px]"
+                    className="hidden md:block absolute right-1/4 bottom-1/3 h-60 w-60 rounded-full bg-purple-500/15 blur-[100px]"
                 ></motion.div>
 
-                {/* Particle effects - enhanced floating dots */}
+                {/* Particle effects - reduced for mobile via CSS (only show first 10 on mobile, all on desktop) */}
                 <div className="absolute inset-0 overflow-hidden">
                     {particlePositions.map((particle, i) => (
                         <motion.div
                             key={i}
-                            className="absolute rounded-full bg-white"
+                            className={`absolute rounded-full bg-white ${i > 10 ? 'hidden md:block' : ''}`}
                             style={{
                                 top: particle.top,
                                 left: particle.left,
