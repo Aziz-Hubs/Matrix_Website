@@ -42,7 +42,8 @@ export default function CardFlip({
   const [isFlipped, setIsFlipped] = useState(false);
 
   // Use state with lazy initializer to generate stable random values once
-  const [codeBlockStyles] = useState(generateCodeBlockStyles);
+  // Use useMemo to generate stable random values once
+  const codeBlockStyles = React.useMemo(() => generateCodeBlockStyles(), []);
 
   return (
     <div

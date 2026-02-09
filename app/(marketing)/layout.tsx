@@ -34,7 +34,7 @@ export default function MarketingLayout({
     return (
         <>
             <Header />
-            <main>{children}</main>
+            <main className="w-full overflow-x-hidden">{children}</main>
             <FooterStandard />
         </>
     );

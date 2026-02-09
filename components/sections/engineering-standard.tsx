@@ -14,7 +14,7 @@ const features = [
             'We design Tier-certified data centers and security grids compliant with the highest Kingdom regulations and international standards.',
         icon: <PencilRuler className="text-red-600 h-6 w-6" />,
         image:
-            'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop',
     },
     {
         step: 'Step 2',
@@ -23,7 +23,7 @@ const features = [
             'Seamless installation of structured cabling, fiber optics, and hardware by certified engineers, ensuring zero disruption.',
         icon: <Server className="text-red-600 h-6 w-6" />,
         image:
-            'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop',
     },
     {
         step: 'Step 3',
@@ -32,7 +32,7 @@ const features = [
             'Overlaying advanced video analytics and AI threat detection to turn physical infrastructure into a smart defense system.',
         icon: <ShieldCheck className="text-red-600 h-6 w-6" />,
         image:
-            'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop',
     },
     {
         step: 'Step 4',
@@ -41,29 +41,23 @@ const features = [
             '24/7 mission-critical support and data management to maximize uptime and operational efficiency.',
         icon: <Activity className="text-red-600 h-6 w-6" />,
         image:
-            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
     },
 ];
 
 export default function EngineeringStandard() {
     const [currentFeature, setCurrentFeature] = useState(0);
-    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         const timer = setInterval(() => {
-            if (progress < 100) {
-                setProgress((prev) => prev + 100 / (4000 / 100));
-            } else {
-                setCurrentFeature((prev) => (prev + 1) % features.length);
-                setProgress(0);
-            }
-        }, 100);
+            setCurrentFeature((prev) => (prev + 1) % features.length);
+        }, 4000);
 
         return () => clearInterval(timer);
-    }, [progress]);
+    }, []);
 
     return (
-        <section className="py-24 px-8 md:px-12 relative z-20">
+        <section className="py-24 px-8 md:px-12 relative z-20 overflow-hidden">
             {/* Top Fade Gradient - Matches TrustBar Horizon Color */}
             <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#080808] to-transparent z-10 pointer-events-none" />
             <div className="mx-auto w-full max-w-7xl relative z-20">
@@ -90,7 +84,6 @@ export default function EngineeringStandard() {
                                 )}
                                 onClick={() => {
                                     setCurrentFeature(index);
-                                    setProgress(0);
                                 }}
                                 initial={{ opacity: 0.3, x: -20 }}
                                 animate={{

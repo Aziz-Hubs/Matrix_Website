@@ -150,6 +150,7 @@
     @apply bg-background text-foreground;
     background-color: #000000;
     overflow-x: hidden;
+    overflow-x: clip;
   }
 
   /* Custom Scrollbar - Deep Black-Red */

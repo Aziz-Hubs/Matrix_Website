@@ -98,7 +98,7 @@ export default function FooterStandard() {
               <label className="block text-sm font-medium text-white">
                 Stay Ahead of the Curve
               </label>
-              <div className="flex gap-2 max-w-sm">
+              <div className="flex flex-col sm:flex-row gap-2 max-w-sm">
                 <Input
                   placeholder="Enter your email"
                   className="bg-white/5 border-white/10 text-white placeholder:text-neutral-500 focus:border-[#DC1E28] focus:ring-[#DC1E28]/20"

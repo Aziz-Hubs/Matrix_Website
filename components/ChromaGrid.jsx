@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import './ChromaGrid.css';
 
@@ -155,7 +156,7 @@ export const ChromaGrid = ({
           }}
         >
           <div className="chroma-img-wrapper">
-            <img src={c.image} alt={c.title} loading="lazy" />
+            <Image src={c.image} alt={c.title} width={300} height={300} loading="lazy" />
           </div>
           <footer className="chroma-info">
             <h3 className="name">{c.title}</h3>

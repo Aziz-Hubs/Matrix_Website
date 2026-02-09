@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React from 'react';
 import { motion, easeInOut } from 'framer-motion';
 
 interface PageBackgroundProps {
@@ -31,7 +31,8 @@ const generateParticlePositions = (): Particle[] => Array.from({ length: 30 }).m
 
 export function PageBackground({ children, className = '' }: PageBackgroundProps) {
     // Use state with lazy initializer to generate stable particle positions once
-    const [particlePositions] = useState(generateParticlePositions);
+    // Use useMemo to generate stable particle positions once
+    const particlePositions = React.useMemo(() => generateParticlePositions(), []);
 
     // Glowing effect animation
     const glowAnimation = {

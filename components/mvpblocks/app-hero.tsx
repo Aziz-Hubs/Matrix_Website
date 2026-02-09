@@ -134,7 +134,7 @@ export default function AppHero() {
   };
 
   return (
-    <section className="relative flex w-full flex-col items-center justify-start overflow-hidden bg-transparent pb-8 pt-24 sm:pt-32 lg:pt-40 text-white sm:px-6 lg:px-8">
+    <section className="relative flex w-full flex-col items-center justify-start overflow-hidden bg-transparent pb-8 pt-20 sm:pt-24 lg:pt-32 text-white sm:px-6 lg:px-8">
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
         {/* Left Column - Headline, Stats, Partners */}
         <div className="order-1 flex flex-col items-center text-center lg:col-span-4 lg:items-start lg:text-left">
@@ -148,7 +148,7 @@ export default function AppHero() {
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
               className="block bg-gradient-to-r from-white via-white to-slate-400 bg-clip-text text-transparent pb-2"
             >
               The Bridge
@@ -156,7 +156,7 @@ export default function AppHero() {
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
               className="block bg-gradient-to-r from-white via-white to-slate-400 bg-clip-text text-transparent pb-2"
             >
               Between Security
@@ -164,7 +164,7 @@ export default function AppHero() {
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
               className="block bg-gradient-to-r from-red-400 via-red-300 to-purple-400 bg-clip-text text-transparent pb-2"
             >
               and Intelligence
