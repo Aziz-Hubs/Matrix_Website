@@ -61,7 +61,6 @@ const emptyStateMessages = {
 
 export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
   const [activeCategory, setActiveCategory] = useState('all');
-  const isRTL = locale === 'ar';
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === 'all') {
