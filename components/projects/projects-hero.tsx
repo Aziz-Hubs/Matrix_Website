@@ -29,7 +29,7 @@ export default function ProjectsHero({ locale }: ProjectsHeroProps) {
   const isRTL = locale === 'ar';
 
   return (
-    <section className="relative w-full min-h-[70vh] flex items-center bg-white dark:bg-[#0a0a0a]">
+    <section className="relative w-full min-h-[70vh] flex items-center bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[70vh]">
           {/* Text Section */}
@@ -54,7 +54,7 @@ export default function ProjectsHero({ locale }: ProjectsHeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-              className={`text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-xl ${
+              className={`text-lg sm:text-xl text-gray-600 mb-8 max-w-xl ${
                 isRTL ? 'lg:mr-auto' : 'lg:ml-auto'
               }`}
             >
@@ -98,6 +98,7 @@ export default function ProjectsHero({ locale }: ProjectsHeroProps) {
                 src={HERO_IMAGE}
                 alt="Matrix Business Technologies Projects"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 priority
               />
