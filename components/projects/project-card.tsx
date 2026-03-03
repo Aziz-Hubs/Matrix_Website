@@ -114,22 +114,23 @@ export default function ProjectCard({ project, locale, index }: ProjectCardProps
         rotateX,
         rotateY,
         transformStyle: 'preserve-3d',
+        perspective: '1000px',
       }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`relative ${heightClass} rounded-2xl overflow-hidden cursor-pointer group`}
+      className={`relative ${heightClass} rounded-2xl overflow-hidden cursor-pointer group hover:scale-105 transition-transform duration-300`}
     >
       {/* Glow Effect - Orange on Hover */}
       <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
           background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 107, 0, 0.15), transparent 40%)',
         }}
       />
 
       {/* Shadow Glow */}
-      <div className="absolute inset-0 rounded-2xl shadow-lg shadow-[#FF6B00]/0 group-hover:shadow-[#FF6B00]/40 transition-shadow duration-500" />
+      <div className="absolute inset-0 rounded-2xl shadow-lg shadow-[#FF6B00]/0 group-hover:shadow-[#FF6B00]/40 transition-shadow duration-300" />
 
       {/* Card Content */}
       <div className="relative w-full h-full">
@@ -210,7 +211,7 @@ export default function ProjectCard({ project, locale, index }: ProjectCardProps
         </div>
 
         {/* Gradient Overlay on Hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F2041] via-[#0F2041]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F2041] via-[#0F2041]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       </div>
     </motion.div>
   );
