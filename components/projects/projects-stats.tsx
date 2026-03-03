@@ -22,7 +22,7 @@ const statsContent = {
     subtext: 'شاهد مشاريعنا أدناه لرؤية كيف حولنا الشركات في جميع أنحاء الأردن بحلول تقنية مبتكرة.',
     stats: [
       { value: 500, suffix: '+', label: 'مشروع مكتمل' },
-      { value: 10, suffix: '+', label: 'صناعةخدمت' },
+      { value: 10, suffix: '+', label: 'صناعات خدمت' },
       { value: 100, suffix: '+', label: 'عميل مؤسسي' },
     ],
   },
