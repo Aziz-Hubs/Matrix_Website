@@ -151,7 +151,7 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
                   {project.image ? (
                     <Image
                       src={project.image}
-                      alt={isRTL && project.titleAr ? project.titleAr : project.title}
+                      alt={isRTL && project.titleAr ? project.titleAr : project.title || 'Project image'}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -161,7 +161,7 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
                       <span className="text-white/50 text-4xl font-bold">
                         {isRTL && project.titleAr
                           ? project.titleAr.charAt(0)
-                          : project.title.charAt(0)}
+                          : (project.title || 'P').charAt(0)}
                       </span>
                     </div>
                   )}
@@ -182,17 +182,17 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
                 <div className="p-5">
                   {/* Title */}
                   <h3 className="text-lg font-semibold text-[#0F2041] mb-2 line-clamp-1">
-                    {isRTL && project.titleAr ? project.titleAr : project.title}
+                    {isRTL && project.titleAr ? project.titleAr : (project.title || 'Untitled Project')}
                   </h3>
 
                   {/* Client */}
                   <p className="text-sm text-gray-500 mb-3">
-                    <span className="font-medium">{isRTL && project.clientAr ? project.clientAr : project.client}</span>
+                    <span className="font-medium">{isRTL && project.clientAr ? project.clientAr : (project.client || 'Client')}</span>
                   </p>
 
                   {/* Description */}
                   <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {isRTL && project.descriptionAr ? project.descriptionAr : project.description}
+                    {isRTL && project.descriptionAr ? project.descriptionAr : (project.description || '')}
                   </p>
 
                   {/* Tags */}
