@@ -97,9 +97,13 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
               onClick={() => setActiveCategory(category)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              role="tab"
+              aria-pressed={isActive}
+              aria-label={categoryLabels[locale][category as keyof typeof categoryLabels.en]}
               className={`
                 flex-shrink-0 px-5 py-2.5 rounded-full font-medium text-sm sm:text-base
                 transition-all duration-200 whitespace-nowrap
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:ring-offset-2
                 ${
                   isActive
                     ? 'bg-[#FF6B00] text-white shadow-lg shadow-[#FF6B00]/30'
@@ -149,6 +153,7 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
                       src={project.image}
                       alt={isRTL && project.titleAr ? project.titleAr : project.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
