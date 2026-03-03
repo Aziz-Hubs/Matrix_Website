@@ -1,9 +1,8 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import ProjectCard from './project-card';
 
 export interface Project {
   _id: string;
@@ -119,7 +118,7 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
         })}
       </div>
 
-      {/* Projects Grid */}
+      {/* Projects Grid - Masonry Layout */}
       <AnimatePresence mode="wait">
         {filteredProjects.length === 0 ? (
           <motion.div
@@ -136,95 +135,15 @@ export default function ProjectsGrid({ projects, locale }: ProjectsGridProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
           >
             {filteredProjects.map((project, index) => (
-              <motion.div
+              <ProjectCard
                 key={project._id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
-              >
-                {/* Image - 16:9 Aspect Ratio */}
-                <div className="relative aspect-video overflow-hidden">
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={isRTL && project.titleAr ? project.titleAr : project.title || 'Project image'}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-[#0F2041] to-[#FF6B00] flex items-center justify-center">
-                      <span className="text-white/50 text-4xl font-bold">
-                        {isRTL && project.titleAr
-                          ? project.titleAr.charAt(0)
-                          : (project.title || 'P').charAt(0)}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Category Badge */}
-                  {project.category && project.category !== 'all' && (
-                    <span
-                      className={`absolute top-3 ${isRTL ? 'left-3' : 'right-3'} px-3 py-1 rounded-full text-xs font-medium ${
-                        categoryColors[project.category] || 'bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      {categoryLabels[locale][project.category as keyof typeof categoryLabels.en] || project.category}
-                    </span>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-[#0F2041] mb-2 line-clamp-1">
-                    {isRTL && project.titleAr ? project.titleAr : (project.title || 'Untitled Project')}
-                  </h3>
-
-                  {/* Client */}
-                  <p className="text-sm text-gray-500 mb-3">
-                    <span className="font-medium">{isRTL && project.clientAr ? project.clientAr : (project.client || 'Client')}</span>
-                  </p>
-
-                  {/* Description */}
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {isRTL && project.descriptionAr ? project.descriptionAr : (project.description || '')}
-                  </p>
-
-                  {/* Tags */}
-                  {project.tags && project.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {(isRTL && project.tagsAr ? project.tagsAr : project.tags)
-                        .slice(0, 3)
-                        .map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                    </div>
-                  )}
-
-                  {/* View Details Link */}
-                  <a
-                    href={`/projects/${project.slug}`}
-                    className={`inline-flex items-center gap-2 text-sm font-medium text-[#FF6B00] hover:text-[#FF6B00]/80 transition-colors ${
-                      isRTL ? 'flex-row-reverse' : ''
-                    }`}
-                  >
-                    <span>{isRTL ? 'عرض التفاصيل' : 'View Details'}</span>
-                    <ArrowRight
-                      className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`}
-                    />
-                  </a>
-                </div>
-              </motion.div>
+                project={project}
+                locale={locale}
+                index={index}
+              />
             ))}
           </motion.div>
         )}
